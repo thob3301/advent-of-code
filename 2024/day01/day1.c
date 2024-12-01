@@ -5,12 +5,13 @@
 
 void	sort(int *arr, size_t n)
 {
-	size_t	i = 0;
+	size_t	i;
 	int		temp;
 	bool	sorted;
 
 	do
 	{
+		i = 0;
 		sorted = true;
 		while (i+1 < n)
 		{
