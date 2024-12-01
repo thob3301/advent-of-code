@@ -9,7 +9,7 @@ void	sort(int *arr, size_t n)
 	int		temp;
 	bool	sorted;
 
-	while (1)
+	do
 	{
 		sorted = true;
 		while (i+1 < n)
@@ -23,9 +23,8 @@ void	sort(int *arr, size_t n)
 			}
 			++i;
 		}
-		if (sorted)
-			break ;
 	}
+	while (!sorted);
 }
 
 int	main(void)
@@ -34,7 +33,7 @@ int	main(void)
 	int		*arr1 = NULL, *arr2 = NULL;
 	size_t	arr_size = 0;
 
-	while (fscanf(stdin, "%d   %d\n", &d1, &d2))
+	while (EOF != fscanf(stdin, "%d   %d\n", &d1, &d2))
 	{
 		++arr_size;
 		arr1 = realloc(arr1, arr_size * sizeof(int));
@@ -48,4 +47,5 @@ int	main(void)
 		sum += abs(arr1[arr_size] - arr2[arr_size]);
 	free(arr1);
 	free(arr2);
+	printf("%d\n", sum);
 }
