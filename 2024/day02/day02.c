@@ -12,7 +12,7 @@ int	main(void)
 	int		safe_sum = 0;
 	char	*tok = NULL;
 	char	*line = NULL;
-	size_t	n = 0, arr_size = 0, arr_i;
+	size_t	n = 0, arr_size, arr_i;
 	bool	safe, trend;
 
 	while (EOF != getline(&line, &n, stdin))
@@ -28,7 +28,7 @@ int	main(void)
 			tok = strtok(NULL, " ");
 		}
 		arr_i = 0;
-		if (arr[arr_i] == arr[arr_i+1])
+		if (arr[arr_i-1] == arr[arr_i])
 			continue ;
 		if (arr[arr_i] < arr[arr_i+1])
 			trend = UP;
@@ -37,7 +37,8 @@ int	main(void)
 		safe = true;
 		while (arr_i++ < arr_size)
 		{
-			if ((abs(arr[arr_i-1] - arr[arr_i]) <= 3)
+			if ((abs(arr[arr_i-1] - arr[arr_i]) <= 1)
+				&& (arr[arr_i-1] != arr[arr_i])
 				&& (trend?(arr[arr_i-1] < arr[arr_i]):(arr[arr_i-1] > arr[arr_i])))
 				continue ;
 			else
@@ -50,8 +51,6 @@ int	main(void)
 			++safe_sum;
 	}
 	free(arr);
-	arr = NULL;
 	free(line);
-	n = 0;
 	printf("Part one, number of safe reports: %d\n", safe_sum);
 }
