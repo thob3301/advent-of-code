@@ -28,7 +28,7 @@ int	main(void)
 			tok = strtok(NULL, " ");
 		}
 		arr_i = 0;
-		if (arr[arr_i-1] == arr[arr_i])
+		if (arr[arr_i] == arr[arr_i+1])
 			continue ;
 		if (arr[arr_i] < arr[arr_i+1])
 			trend = UP;
@@ -37,7 +37,7 @@ int	main(void)
 		safe = true;
 		while (arr_i++ < arr_size)
 		{
-			if ((abs(arr[arr_i-1] - arr[arr_i]) <= 1)
+			if ((abs(arr[arr_i-1] - arr[arr_i]) <= 3)
 				&& (arr[arr_i-1] != arr[arr_i])
 				&& (trend?(arr[arr_i-1] < arr[arr_i]):(arr[arr_i-1] > arr[arr_i])))
 				continue ;
