@@ -11,3 +11,4 @@ int	main(void)
 		while (tok)
 		{
 			num = atoi(tok);
+			tok = strtok(NULL, " ");
