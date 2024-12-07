@@ -72,7 +72,7 @@ int	main(void)
 				++arr_i;
 			}
 			++arr_i_neglect;
-			safety_check(arr2, arr_size, &safe);
+			safety_check(arr2, arr_size-1, &safe);
 			if (safe)
 			{
 				++safe_sum_p2;
